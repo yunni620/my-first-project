@@ -1,4 +1,5 @@
 :root {
+ codex/-dashboard-0yfk56
   --cream: #fffaf2;
   --paper: #fffdf9;
   --blush: #ffdce2;
@@ -10,6 +11,17 @@
   --muted: #9b7d85;
   --line: #f5dce0;
   --shadow: 0 16px 42px rgba(176, 102, 121, 0.12);
+
+  --background: #f4f7fb;
+  --card: #ffffff;
+  --text: #1f2942;
+  --muted: #7a849e;
+  --primary: #6c63e8;
+  --primary-dark: #554ccf;
+  --accent: #37c6a3;
+  --line: #e8ebf3;
+  --shadow: 0 18px 50px rgba(43, 51, 83, 0.1);
+ main
 }
 
 * {
@@ -23,6 +35,7 @@ body {
   color: var(--text);
   font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   background:
+ codex/-dashboard-0yfk56
     radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.9), transparent 24%),
     radial-gradient(circle at 88% 82%, rgba(255, 205, 211, 0.46), transparent 30%),
     linear-gradient(145deg, #fffaf4 0%, #fff1f3 52%, #ffe7eb 100%);
@@ -48,6 +61,11 @@ body::after {
   right: 6%;
   bottom: 10%;
   transform: rotate(25deg);
+
+    radial-gradient(circle at 10% 10%, rgba(108, 99, 232, 0.12), transparent 28%),
+    radial-gradient(circle at 90% 90%, rgba(55, 198, 163, 0.12), transparent 26%),
+    var(--background);
+ main
 }
 
 button,
@@ -56,15 +74,25 @@ input {
 }
 
 .dashboard {
+ codex/-dashboard-0yfk56
   width: min(100%, 840px);
+
+  width: min(100%, 820px);
+ main
   margin: 0 auto;
 }
 
 .hero {
+codex/-dashboard-0yfk56
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+main
   gap: 24px;
   margin-bottom: 28px;
 }
@@ -72,7 +100,11 @@ input {
 .eyebrow,
 .section-label {
   margin: 0 0 8px;
+ codex/-dashboard-0yfk56
   color: var(--rose);
+
+  color: var(--primary);
+main
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -86,12 +118,16 @@ p {
 
 h1 {
   margin-bottom: 10px;
+codex/-dashboard-0yfk56
   color: var(--berry);
+
+ main
   font-size: clamp(2rem, 5vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.04em;
 }
 
+ codex/-dashboard-0yfk56
 .title-heart {
   display: inline-block;
   color: var(--rose);
@@ -99,12 +135,15 @@ h1 {
   transform: rotate(10deg);
 }
 
+
+ main
 .subtitle {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 1.02rem;
 }
 
+ codex/-dashboard-0yfk56
 .pig-mascot {
   position: relative;
   width: 104px;
@@ -208,6 +247,15 @@ h1 {
   text-align: center;
   background: rgba(255, 253, 249, 0.78);
   box-shadow: 0 8px 24px rgba(176, 102, 121, 0.08);
+
+.date-card {
+  min-width: 116px;
+  padding: 16px 18px;
+  border: 1px solid rgba(108, 99, 232, 0.16);
+  border-radius: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+ main
   backdrop-filter: blur(8px);
 }
 
@@ -216,6 +264,7 @@ h1 {
   display: block;
 }
 
+ codex/-dashboard-0yfk56
 .date-card .date-icon {
   margin-bottom: 2px;
   font-size: 1.1rem;
@@ -230,19 +279,40 @@ h1 {
 .date-card strong {
   color: var(--rose);
   font-size: 1.02rem;
+
+.date-card span {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.date-card strong {
+  color: var(--primary);
+  font-size: 1.08rem;
+ main
 }
 
 .progress-card,
 .tasks-card {
+ codex/-dashboard-0yfk56
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 30px;
   background: rgba(255, 253, 249, 0.94);
+
+  border: 1px solid rgba(232, 235, 243, 0.9);
+  border-radius: 24px;
+  background: var(--card);
+ main
   box-shadow: var(--shadow);
 }
 
 .progress-card {
   margin-bottom: 20px;
+ codex/-dashboard-0yfk56
   padding: 28px 30px 31px;
+
+  padding: 26px 28px;
+ main
 }
 
 .progress-heading {
@@ -250,7 +320,11 @@ h1 {
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
+ codex/-dashboard-0yfk56
   margin-bottom: 22px;
+
+  margin-bottom: 18px;
+ main
 }
 
 .progress-heading h2,
@@ -260,23 +334,35 @@ h1 {
 }
 
 .percentage {
+ codex/-dashboard-0yfk56
   color: var(--rose);
+
+  color: var(--primary);
+ main
   font-size: 1.8rem;
 }
 
 .progress-track {
+ codex/-dashboard-0yfk56
   position: relative;
   height: 15px;
   border: 3px solid #fff;
   border-radius: 999px;
   background: #f9e6e9;
   box-shadow: inset 0 2px 5px rgba(176, 102, 121, 0.1);
+
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #eeeff8;
+ main
 }
 
 .progress-fill {
   width: 0;
   height: 100%;
   border-radius: inherit;
+ codex/-dashboard-0yfk56
   background: linear-gradient(90deg, var(--pink), var(--peach));
   transition: width 350ms ease;
 }
@@ -310,6 +396,20 @@ h1 {
   transform: rotate(-20deg);
 }
 
+
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 300ms ease;
+}
+
+.tasks-card {
+  padding: 30px;
+}
+
+.tasks-heading {
+  margin-bottom: 22px;
+}
+
+main
 .task-form {
   display: flex;
   gap: 10px;
@@ -319,6 +419,7 @@ h1 {
 .task-form input {
   min-width: 0;
   flex: 1;
+ codex/-dashboard-0yfk56
   padding: 15px 19px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -360,10 +461,45 @@ h1 {
 
 .empty-state {
   margin: 38px 0 20px;
+
+  padding: 14px 17px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  outline: none;
+  color: var(--text);
+  background: #fafbfe;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.task-form input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(108, 99, 232, 0.12);
+}
+
+.task-form button {
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 13px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--primary);
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.task-form button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.empty-state {
+  margin: 36px 0 18px;
+ main
   color: var(--muted);
   text-align: center;
 }
 
+ codex/-dashboard-0yfk56
 .empty-state::before {
   display: block;
   margin-bottom: 8px;
@@ -371,6 +507,8 @@ h1 {
   content: "🐽";
 }
 
+
+ main
 .task-list {
   display: grid;
   gap: 10px;
@@ -383,22 +521,38 @@ h1 {
   display: flex;
   align-items: center;
   gap: 13px;
+ codex/-dashboard-0yfk56
   padding: 15px 18px;
   border: 1px solid var(--line);
   border-radius: 20px;
   cursor: pointer;
   background: #fffaf8;
+
+  padding: 15px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  cursor: pointer;
+  background: #fff;
+ main
   transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
 }
 
 .task-item:hover {
+ codex/-dashboard-0yfk56
   border-color: var(--pink);
   background: #fff6f5;
+
+  border-color: rgba(108, 99, 232, 0.4);
+ main
   transform: translateY(-1px);
 }
 
 .task-item.completed {
+ codex/-dashboard-0yfk56
   background: #fbf5f3;
+
+  background: #f7f8fb;
+ main
 }
 
 .task-checkbox {
@@ -406,7 +560,11 @@ h1 {
   height: 21px;
   margin: 0;
   flex: 0 0 auto;
+ codex/-dashboard-0yfk56
   accent-color: var(--rose);
+
+  accent-color: var(--primary);
+ main
   cursor: pointer;
 }
 
@@ -416,7 +574,11 @@ h1 {
 }
 
 .completed .task-text {
+ codex/-dashboard-0yfk56
   color: #b9a4a9;
+
+  color: #a1a8b9;
+main
   text-decoration: line-through;
 }
 
@@ -431,19 +593,28 @@ h1 {
   border: 0;
 }
 
+codex/-dashboard-0yfk56
 @media (max-width: 720px) {
+
+@media (max-width: 600px) {
+main
   body {
     padding: 30px 16px;
   }
 
   .hero {
+codex/-dashboard-0yfk56
     grid-template-columns: 1fr auto;
+
+    align-items: flex-start;
+ main
   }
 
   .date-card {
     display: none;
   }
 
+codex/-dashboard-0yfk56
   .pig-mascot {
     transform: scale(0.88);
     transform-origin: right center;
@@ -474,6 +645,12 @@ h1 {
   .tasks-card {
     padding: 23px 20px;
     border-radius: 25px;
+
+  .progress-card,
+  .tasks-card {
+    padding: 22px 20px;
+    border-radius: 20px;
+ main
   }
 
   .task-form {
@@ -484,6 +661,7 @@ h1 {
     width: 100%;
   }
 }
+codex/-dashboard-0yfk56
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -493,3 +671,5 @@ h1 {
     transition-duration: 0.01ms !important;
   }
 }
+
+ main

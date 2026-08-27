@@ -7,7 +7,10 @@ const totalCount = document.querySelector("#total-count");
 const percentageText = document.querySelector("#percentage");
 const progressTrack = document.querySelector(".progress-track");
 const progressFill = document.querySelector("#progress-fill");
+ codex/-dashboard-0yfk56
 const progressPig = document.querySelector("#progress-pig");
+
+main
 
 const savedTasks = localStorage.getItem("study-dashboard-tasks");
 let tasks = savedTasks ? JSON.parse(savedTasks) : [];
@@ -24,7 +27,10 @@ function updateProgress() {
   totalCount.textContent = tasks.length;
   percentageText.textContent = `${percentage}%`;
   progressFill.style.width = `${percentage}%`;
+ codex/-dashboard-0yfk56
   progressPig.style.left = `${percentage}%`;
+
+ main
   progressTrack.setAttribute("aria-valuenow", percentage);
   emptyState.hidden = tasks.length > 0;
 }
