@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="记录每日学习任务和完成进度的学习打卡面板" />
+    <title>Yunni's Study Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">DAILY FOCUS</p>
+          <h1>Yunni's Study Dashboard</h1>
+          <p class="subtitle">把今天的小目标，一件一件完成。</p>
+        </div>
+        <div class="date-card" aria-label="今天的日期">
+          <span id="weekday"></span>
+          <strong id="today"></strong>
+        </div>
+      </header>
+
+      <section class="progress-card" aria-labelledby="progress-title">
+        <div class="progress-heading">
+          <div>
+            <p class="section-label">今日进度</p>
+            <h2 id="progress-title"><span id="completed-count">0</span> / <span id="total-count">0</span> 项已完成</h2>
+          </div>
+          <strong class="percentage" id="percentage">0%</strong>
+        </div>
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="学习任务完成进度"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </section>
+
+      <section class="tasks-card" aria-labelledby="tasks-title">
+        <div class="tasks-heading">
+          <div>
+            <p class="section-label">学习清单</p>
+            <h2 id="tasks-title">今天要做什么？</h2>
+          </div>
+        </div>
+
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">输入学习任务</label>
+          <input
+            id="task-input"
+            type="text"
+            placeholder="例如：复习 30 分钟英语单词"
+            autocomplete="off"
+            maxlength="80"
+            required
+          />
+          <button type="submit">添加任务</button>
+        </form>
+
+        <p id="empty-state" class="empty-state">还没有任务，添加一个小目标开始学习吧！</p>
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

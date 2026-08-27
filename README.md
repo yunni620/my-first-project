@@ -1,2 +1,36 @@
-# my-first-project
-My first Github project
+# Yunni's Study Dashboard
+
+一个使用原生 HTML、CSS 和 JavaScript 制作的简洁学习打卡网页，适合用来记录当天的学习任务。
+
+## 项目功能
+
+- 添加今天要完成的学习任务
+- 点击任务或复选框，将任务标记为完成（再次点击可以取消完成）
+- 实时显示“已完成任务数 / 总任务数”
+- 用进度条直观展示当天的学习进度
+- 自动将任务保存在浏览器中，刷新页面后不会丢失
+
+## 如何打开
+
+这个项目不需要安装任何依赖。
+
+1. 下载或克隆本项目。
+2. 找到项目目录中的 `index.html`。
+3. 双击 `index.html`，它会在浏览器中打开。
+
+也可以在项目目录中启动一个简单的本地服务器：
+
+```bash
+python3 -m http.server 8000
+```
+
+然后在浏览器中访问 <http://localhost:8000>。
+
+## 文件结构
+
+```text
+├── index.html   # 网页结构
+├── style.css    # 页面样式
+├── script.js    # 添加任务、打卡和进度计算逻辑
+└── README.md    # 项目说明
+```
