@@ -1,171 +1,112 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f8dce3" />
-    <meta name="description" content="Yunni 的大学生活学习与计划面板" />
-    <title>Yunni's Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brand-pig" aria-hidden="true">🐷</div>
-          <div>
-            <strong>Yunni's</strong>
-            <span>study space</span>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8dce3" />
+  <meta name="description" content="Yunni 的云端学习与计划面板" />
+  <title>Yunni's Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-pig">🐷</div>
+      <p class="eyebrow">YUNNI CLOUD</p>
+      <h1>登录后，手机和电脑会看到同一份清单。</h1>
+      <p class="auth-copy">第一次用就注册；以后在任意设备打开这个网址，登录同一个账号即可同步。</p>
+      <form id="auth-form" class="auth-form">
+        <input id="auth-email" type="email" placeholder="邮箱" autocomplete="email" required />
+        <input id="auth-password" type="password" placeholder="密码（至少 6 位）" autocomplete="current-password" minlength="6" required />
+        <div class="auth-actions">
+          <button id="login-button" class="primary-button" type="submit">登录</button>
+          <button id="signup-button" class="secondary-button" type="button">第一次使用 · 注册</button>
         </div>
-
-        <nav class="nav" aria-label="主导航">
-          <button class="nav-item active" data-view="today"><span>◉</span> Today</button>
-          <button class="nav-item" data-view="radar"><span>⌁</span> Radar</button>
-          <button class="nav-item" data-view="review"><span>↗</span> Review</button>
-        </nav>
-
-        <div class="sidebar-note">
-          <span>little reminder</span>
-          <p>只做今天真正重要的事。</p>
-        </div>
-      </aside>
-
-      <main class="main-content">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow" id="view-eyebrow">TODAY</p>
-            <h1 id="view-title">今天，慢慢完成就好。</h1>
-          </div>
-          <div class="date-pill">
-            <span id="weekday"></span>
-            <strong id="today"></strong>
-          </div>
-        </header>
-
-        <section class="view active" id="today-view">
-          <div class="hero-grid">
-            <article class="card focus-card">
-              <div class="card-heading">
-                <div>
-                  <p class="section-label">今日完成度</p>
-                  <h2><span id="completed-count">0</span>/<span id="total-count">0</span> 项</h2>
-                </div>
-                <strong class="percentage" id="percentage">0%</strong>
-              </div>
-              <div class="progress-track" role="progressbar" aria-label="今日任务完成进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="progress-fill" id="progress-fill"></div>
-                <span class="progress-pig" id="progress-pig" aria-hidden="true">🐷</span>
-              </div>
-              <p class="focus-copy" id="focus-copy">先加一件今天最重要的事。</p>
-            </article>
-
-            <article class="card mini-card">
-              <p class="section-label">今日重点</p>
-              <div class="mini-stat">
-                <span class="mini-icon">◎</span>
-                <div><strong id="high-priority-count">0</strong><small>高优先级</small></div>
-              </div>
-              <div class="mini-stat">
-                <span class="mini-icon">♡</span>
-                <div><strong id="study-count">0</strong><small>学习任务</small></div>
-              </div>
-            </article>
-          </div>
-
-          <article class="card tasks-card">
-            <div class="card-heading tasks-heading">
-              <div>
-                <p class="section-label">TODAY LIST</p>
-                <h2>今天要做什么？</h2>
-              </div>
-              <div class="filter-tabs" role="group" aria-label="任务筛选">
-                <button class="filter active" data-filter="all">全部</button>
-                <button class="filter" data-filter="study">学习</button>
-                <button class="filter" data-filter="school">学校</button>
-                <button class="filter" data-filter="life">生活</button>
-              </div>
-            </div>
-
-            <form id="task-form" class="task-form">
-              <input id="task-input" type="text" maxlength="100" autocomplete="off" placeholder="写下今天的一件事…" required />
-              <select id="task-category" aria-label="任务分类">
-                <option value="study">学习</option>
-                <option value="school">学校</option>
-                <option value="life">生活</option>
-              </select>
-              <select id="task-priority" aria-label="优先级">
-                <option value="normal">普通</option>
-                <option value="high">重要</option>
-              </select>
-              <button type="submit" class="primary-button">＋ 添加</button>
-            </form>
-
-            <p id="empty-state" class="empty-state">今天还没有任务。先放一件最重要的进来吧 🐽</p>
-            <ul id="task-list" class="task-list" aria-live="polite"></ul>
-          </article>
-        </section>
-
-        <section class="view" id="radar-view">
-          <div class="section-intro">
-            <div>
-              <p class="section-label">LONG-TERM RADAR</p>
-              <h2>不是今天做，但绝对不能忘。</h2>
-            </div>
-          </div>
-
-          <article class="card radar-card">
-            <form id="radar-form" class="radar-form">
-              <input id="radar-input" type="text" maxlength="120" placeholder="例如：军训总结 / CET4 报名 / 考研资料…" required />
-              <input id="radar-date" type="date" aria-label="截止日期" />
-              <select id="radar-type" aria-label="事项类型">
-                <option value="deadline">截止事项</option>
-                <option value="exam">考试</option>
-                <option value="project">长期项目</option>
-              </select>
-              <button class="primary-button" type="submit">加入雷达</button>
-            </form>
-            <div id="radar-list" class="radar-list"></div>
-            <p id="radar-empty" class="empty-state">雷达暂时很安静。很好。</p>
-          </article>
-        </section>
-
-        <section class="view" id="review-view">
-          <div class="review-grid">
-            <article class="card stat-card">
-              <p class="section-label">本周完成</p>
-              <strong id="week-completed">0</strong>
-              <span>项任务</span>
-            </article>
-            <article class="card stat-card">
-              <p class="section-label">本周完成率</p>
-              <strong id="week-rate">0%</strong>
-              <span>完成 / 创建</span>
-            </article>
-            <article class="card stat-card">
-              <p class="section-label">学习任务</p>
-              <strong id="week-study">0</strong>
-              <span>项完成</span>
-            </article>
-          </div>
-
-          <article class="card review-card">
-            <div class="card-heading">
-              <div>
-                <p class="section-label">WEEKLY REVIEW</p>
-                <h2>这一周留下了什么？</h2>
-              </div>
-            </div>
-            <div class="review-message" id="review-message">等你完成几项任务后，这里会开始有自己的数据。</div>
-            <div class="data-actions">
-              <button id="export-button" class="secondary-button" type="button">导出备份</button>
-              <label class="secondary-button upload-button">导入备份<input id="import-input" type="file" accept="application/json" /></label>
-            </div>
-          </article>
-        </section>
-      </main>
+      </form>
+      <p id="auth-message" class="auth-message" aria-live="polite"></p>
     </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <div class="app-shell" id="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-pig" aria-hidden="true">🐷</div>
+        <div><strong>Yunni's</strong><span>cloud study space</span></div>
+      </div>
+      <nav class="nav" aria-label="主导航">
+        <button class="nav-item active" data-view="today"><span>◉</span> Today</button>
+        <button class="nav-item" data-view="radar"><span>⌁</span> Radar</button>
+        <button class="nav-item" data-view="review"><span>↗</span> Review</button>
+      </nav>
+      <div class="account-box">
+        <span id="sync-status">● 已同步</span>
+        <button id="logout-button" type="button">退出</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><p class="eyebrow" id="view-eyebrow">TODAY</p><h1 id="view-title">今天，慢慢完成就好。</h1></div>
+        <div class="date-pill"><span id="weekday"></span><strong id="today"></strong></div>
+      </header>
+
+      <section class="view active" id="today-view">
+        <div class="hero-grid">
+          <article class="card focus-card">
+            <div class="card-heading"><div><p class="section-label">今日完成度</p><h2><span id="completed-count">0</span>/<span id="total-count">0</span> 项</h2></div><strong class="percentage" id="percentage">0%</strong></div>
+            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progress-fill"></div><span class="progress-pig" id="progress-pig">🐷</span></div>
+            <p class="focus-copy" id="focus-copy">先加一件今天最重要的事。</p>
+          </article>
+          <article class="card mini-card">
+            <p class="section-label">今日重点</p>
+            <div class="mini-stat"><span class="mini-icon">◎</span><div><strong id="high-priority-count">0</strong><small>高优先级</small></div></div>
+            <div class="mini-stat"><span class="mini-icon">♡</span><div><strong id="study-count">0</strong><small>学习任务</small></div></div>
+          </article>
+        </div>
+
+        <article class="card tasks-card">
+          <div class="card-heading tasks-heading"><div><p class="section-label">TODAY LIST</p><h2>今天要做什么？</h2></div><div class="filter-tabs"><button class="filter active" data-filter="all">全部</button><button class="filter" data-filter="study">学习</button><button class="filter" data-filter="school">学校</button><button class="filter" data-filter="life">生活</button></div></div>
+          <form id="task-form" class="task-form">
+            <input id="task-input" type="text" maxlength="100" placeholder="写下今天的一件事…" required />
+            <select id="task-category"><option value="study">学习</option><option value="school">学校</option><option value="life">生活</option></select>
+            <select id="task-priority"><option value="normal">普通</option><option value="high">重要</option></select>
+            <button type="submit" class="primary-button">＋ 添加</button>
+          </form>
+          <p id="empty-state" class="empty-state">今天还没有任务。先放一件最重要的进来吧 🐽</p>
+          <ul id="task-list" class="task-list"></ul>
+        </article>
+      </section>
+
+      <section class="view" id="radar-view">
+        <div class="section-intro"><p class="section-label">LONG-TERM RADAR</p><h2>不是今天做，但绝对不能忘。</h2></div>
+        <article class="card radar-card">
+          <form id="radar-form" class="radar-form">
+            <input id="radar-input" type="text" maxlength="120" placeholder="例如：军训总结 / CET4 报名 / 长期项目…" required />
+            <input id="radar-date" type="date" />
+            <select id="radar-type"><option value="deadline">截止事项</option><option value="exam">考试</option><option value="project">长期项目</option></select>
+            <button class="primary-button" type="submit">加入雷达</button>
+          </form>
+          <div id="radar-list" class="radar-list"></div>
+          <p id="radar-empty" class="empty-state">雷达暂时很安静。很好。</p>
+        </article>
+      </section>
+
+      <section class="view" id="review-view">
+        <div class="review-grid">
+          <article class="card stat-card"><p class="section-label">本周完成</p><strong id="week-completed">0</strong><span>项任务</span></article>
+          <article class="card stat-card"><p class="section-label">本周完成率</p><strong id="week-rate">0%</strong><span>完成 / 创建</span></article>
+          <article class="card stat-card"><p class="section-label">学习任务</p><strong id="week-study">0</strong><span>项完成</span></article>
+        </div>
+        <article class="card review-card">
+          <p class="section-label">WEEKLY REVIEW</p><h2>这一周留下了什么？</h2>
+          <div class="review-message" id="review-message">等你完成几项任务后，这里会开始有自己的数据。</div>
+          <div class="data-actions"><button id="refresh-button" class="secondary-button" type="button">刷新云端数据</button></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
 </html>
