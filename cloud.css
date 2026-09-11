@@ -8,4 +8,4 @@
 .auth-message{min-height:1.4em;margin:14px 0 0;color:var(--green);font-size:.86rem;line-height:1.5}.auth-message.error{color:#b4536b}
 .account-box{display:flex;align-items:center;gap:10px;flex:0 0 auto}.account-box span{font-size:.72rem;color:var(--green);white-space:nowrap}.account-box span.busy{color:var(--rose)}.account-box button{border:0;background:transparent;color:var(--muted);font-size:.74rem;cursor:pointer;padding:6px}.account-box button:hover{color:var(--rose-deep)}
 @media(max-width:900px){.account-box{margin-left:auto}}
-@media(max-width:650px){.auth-screen{padding:14px}.auth-card{padding:26px 20px;border-radius:24px}.auth-actions{grid-template-columns:1fr}.account-box{display:none}}
+@media(max-width:650px){.auth-screen{padding:14px}.auth-card{padding:26px 20px;border-radius:24px}.auth-actions{grid-template-columns:1fr}.account-box{display:flex;margin-left:0;flex:0 0 auto}.account-box span{display:none}.account-box button{min-width:44px;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#fff7f8;color:var(--rose-deep);font-weight:800}}
